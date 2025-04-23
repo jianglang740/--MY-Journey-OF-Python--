@@ -1,4 +1,34 @@
-在之前我已经学习了一些python基础，并且安装好了pycharm社区版，所以在今天我将在此分享我的第一个python程序
-'''ruby
-print("nihao")
+在之前我已经学习了一些python基础，并且安装好了pycharm社区版，所以在今天我将在此分享我的第一个python程序，以我所学的课本上一段计算年利息的代码为例:
+
+1.0 以下是这段代码的初级形式
+    '''blance = 50000    #账户余额
+      annualInterestRate = 5.5    #年利率
+      interest = blance*(annualInterestRate/1200)    #计算
+   '''
+在这段代码中，我们分别定义了三个变量“账户余额，年利率，计算” ；对应IPO编程法不难发现，I代表账户余额和年利率，P则是计算部分，而O则是需要输出的最终结果；
+但这串代码不免有些低级，比如账户余额和年利率都不是一成不变的。
+
+1.1 接下来我们对这串代码进行改进：
+
+   '''balance=eval(input（“请输入账户余额，例如50000：”）)    #账户余额
+      annualInterestRate=elal(input（“请输入年利率，例如5.5：”）)    #年利率
+      interest= balance *(annualInterestRate /1200)    #利息-余额×月利率
+      print(“本月应付利息为："，interest)
+  '''
+在这串代码中我们加入了一个"input"函数来接收用户输入的账户余额和年利率，但其接收到的是字符串形式，这是不能用于计算的，所以我们需要用一个"eval"函数来将其转换成数字，其调用形式为eval（input（""））
+
+1.2 继续改进这串代码：
+
+    '''
+balance = eval(input（“请输入账户余额，例如50000：”））    #账户余额
+if balance < 0:
+    print("账户余额不能为负值"）
+else:
+     apnualInterestRate=eval(input("请输入年利率，例如5.5："））    #年利率
+     interest= balance *(annualInterestRate /1200)    #月利息=余额×月利率
+     for i in range(1,13): 
+                    balance = balance + interest
+                    print（“第{：2d}个月余额为：{：.2f}".format(i，balance))    #余额=上月余额+利息
 '''
+在这段代码中我们加入了一个判断语句，使得用户在输入账户余额时更具合理性，此外还加入了一个for循环语句，使得用户可以看到每一个月的余额，i每取到一个新的值便会循环一次，从1到13，也就是循环12次，
+分别对应从一月到十二月，在下一个文件中我们将更进一步的学习for循环语句
